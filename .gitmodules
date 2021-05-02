@@ -1,0 +1,5 @@
+[submodule "submodules/wlroots"]
+	path = submodules/nixpkgs
+	url = https://github.com/SimulaVR/nixpkgs
+	branch = fpic
+	shallow = true
