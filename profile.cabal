@@ -6,6 +6,6 @@ cabal-version: >= 1.10
 build-type: Simple
 
 executable profile
-    build-depends: base
+    build-depends: base, unordered-containers
     main-is: Main.hs
     default-language: Haskell2010
