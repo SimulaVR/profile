@@ -1,8 +1,16 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Main where
 
 import qualified Data.HashSet as HashSet
+import Control.Lens
+
+data Test = Test {
+    _tString :: String
+}
+
+makeLenses ''Test
 
 main :: IO ()
 main = do
-  let dataStructures = HashSet.fromList ["Set", "Map", "Graph", "Sequence"]
   putStrLn "Hello, world!"

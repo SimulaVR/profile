@@ -11,7 +11,7 @@ let
           overrides = super.lib.composeExtensions (old.overrides or (_: _: {}))
             (hself: hsuper: {
               mkDerivation = x: (hsuper.mkDerivation x).override (old: {
-                enableLibraryProfiling = false;
+                enableLibraryProfiling = true;
                 doCheck = false;
                 configureFlags = (old.configureFlags or []) ++ ["--ghc-options=-fPIC -fexternal-dynamic-refs"];
               });
