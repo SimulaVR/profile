@@ -3,3 +3,6 @@
 	url = https://github.com/SimulaVR/nixpkgs
 	branch = fpic
 	shallow = true
+[submodule "submodules/cabal"]
+	path = submodules/cabal
+	url = https://github.com/SimulaVR/cabal
