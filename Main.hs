@@ -2,14 +2,42 @@
 
 module Main where
 
-import qualified Data.HashSet as HashSet
-import Control.Lens
+import Dhall
 
-data Test = Test {
-    _tString :: String
-}
+data KeyboardShortcut = KeyboardShortcut {
+  _keyCombination :: [String]
+, _keyAction      :: String
+} deriving (Generic, Show)
 
-makeLenses ''Test
+data KeyboardRemapping = KeyboardRemapping {
+  _keyOriginal :: String
+, _keyMappedTo :: String
+} deriving (Generic, Show)
+
+data StartingApps = StartingApps {
+  _center :: Maybe String
+, _right  :: Maybe String
+, _bottom :: Maybe String
+, _left   :: Maybe String
+, _top    :: Maybe String
+} deriving (Generic, Show)
+
+data Configuration = Configuration {
+  _backend :: String
+, _startingApps :: StartingApps
+, _defaultWindowResolution :: Maybe (Natural, Natural)
+, _defaultWindowScale :: Double
+, _keyBindings :: [KeyboardShortcut]
+, _keyRemappings :: [KeyboardRemapping]
+, _environmentsDirectory :: String
+, _environmentDefault :: String
+-- , _defaultTransparency :: Double -- Remove until order independent transparency is implemented
+} deriving (Generic, Show)
+
+parseConfiguration :: IO (Configuration)
+parseConfiguration = do
+  config <- input auto "./config.dhall" :: IO Configuration
+  return config
 
 main :: IO ()
 main = do
