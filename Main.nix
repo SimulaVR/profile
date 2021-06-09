@@ -1,5 +1,5 @@
 {
-  mkDerivation, base, stdenv, dhall, cabal-install
+  mkDerivation, base, stdenv, dhall, cabal-install, zlib
 }:
 let
 
@@ -12,7 +12,8 @@ mkDerivation {
   # isExecutable = true;
   # executableHaskellDepends = [ base unordered-containers lens ];
   # libraryHaskellDepends = [ base unordered-containers lens ];
-  buildDepends = [ base dhall cabal-install ];
+  executableHaskellDepends = [ zlib ];
+  buildDepends = [ base dhall cabal-install zlib ];
   license = stdenv.lib.licenses.bsd3;
   enableLibraryProfiling = true;
 }

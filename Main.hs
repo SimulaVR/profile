@@ -1,4 +1,5 @@
-{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
@@ -33,6 +34,11 @@ data Configuration = Configuration {
 , _environmentDefault :: String
 -- , _defaultTransparency :: Double -- Remove until order independent transparency is implemented
 } deriving (Generic, Show)
+
+instance FromDhall KeyboardRemapping
+instance FromDhall KeyboardShortcut
+instance FromDhall Configuration
+instance FromDhall StartingApps
 
 parseConfiguration :: IO (Configuration)
 parseConfiguration = do
