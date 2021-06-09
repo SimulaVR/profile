@@ -49,3 +49,5 @@ main :: IO ()
 main = do
   parseConfiguration
   putStrLn "Hello, world!"
+
+foreign export ccall main :: IO ()

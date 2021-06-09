@@ -13,6 +13,8 @@ foreign-library profile
     other-modules:
       Main
     default-language: Haskell2010
+    c-sources:
+        cbits/flib.c
 
 -- Works:
 -- executable profile
