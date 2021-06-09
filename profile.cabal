@@ -7,7 +7,7 @@ build-type: Simple
 
 -- Yields fPIC errors:
 foreign-library profile
-    build-depends: base, unordered-containers, lens
+    build-depends: base, dhall
     hs-source-dirs: .
     type: native-shared
     other-modules:
