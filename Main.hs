@@ -47,4 +47,5 @@ parseConfiguration = do
 
 main :: IO ()
 main = do
+  parseConfiguration
   putStrLn "Hello, world!"
